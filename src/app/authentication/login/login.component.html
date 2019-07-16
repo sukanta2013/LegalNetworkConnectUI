@@ -1,0 +1,44 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active"> Sign In </h2>
+    <h2 class="inactive underlineHover">Sign Up </h2>
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="http://simpleicon.com/wp-content/uploads/yelp.svg" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <div class="fadeIn second">
+        <mat-form-field>
+          <input matInput placeholder="Username" type="text" [formControl]="userNameControl" [(ngModel)]="userName"
+            autofocus>
+          <mat-error *ngIf="userNameControl.hasError('required') && userNameControl.touched">This field is <strong>required</strong></mat-error>
+        </mat-form-field>
+      </div>
+      <div class="fadeIn third">
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password" [formControl]="passwordControl" [(ngModel)]="password">
+          <mat-error *ngIf="passwordControl.hasError('required')">This field is <strong>required</strong></mat-error>
+        </mat-form-field>
+      </div>
+      <!-- <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"> -->
+      <!-- <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"> -->
+      <!-- <input type="submit" class="fadeIn fourth" value="Log In"> -->
+      <button mat-raised-button class="fadeIn fourth" color="primary" (click)="userLogin()" style="min-width:100px">{{txtLogin}}</button>
+    </form>
+    <div class="loading-spinner" *ngIf="isSpinnerHidden">
+        <mat-spinner strokeWidth="4" diameter="60"></mat-spinner>
+      </div>
+    <div class="col-12 col-sm-12 col-md" style="color:red;">
+        {{errorMessage}}
+      </div>
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
